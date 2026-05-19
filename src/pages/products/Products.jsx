@@ -72,121 +72,79 @@ const Products = () => {
 
       {/* Product Grid */}
       <section className="relative z-10 py-10 px-4 md:px-10 lg:px-20 max-w-[100rem] mx-auto">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-12 gap-6 lg:gap-8">
-          {coffeeProducts.map((product, idx) => {
-            let spanClass = "col-span-1 md:col-span-1 lg:col-span-4";
-            let heightClass = "h-[450px]";
-
-            if (idx === 0) {
-              spanClass = "col-span-1 md:col-span-2 lg:col-span-12";
-              heightClass = "h-[500px] lg:h-[650px]";
-            } else if (idx === 1 || idx === 4) {
-              spanClass = "col-span-1 md:col-span-1 lg:col-span-7";
-              heightClass = "h-[450px] lg:h-[500px]";
-            } else if (idx === 2 || idx === 3) {
-              spanClass = "col-span-1 md:col-span-1 lg:col-span-5";
-              heightClass = "h-[450px] lg:h-[500px]";
-            } else if (idx === 5 || idx === 6) {
-              spanClass = "col-span-1 md:col-span-1 lg:col-span-6";
-              heightClass = "h-[450px] lg:h-[500px]";
-            } else if (idx === 7) {
-              spanClass = "col-span-1 md:col-span-2 lg:col-span-12";
-              heightClass = "h-[500px] lg:h-[650px]";
-            }
-
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 lg:gap-10">
+          {coffeeProducts.map((product) => {
             const meta = getProductMeta(product.region, product.name);
             return (
               <div
                 key={product.id}
-                className={`group relative rounded-[2.5rem] overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-amber-500/10 dark:hover:shadow-amber-950/20 transition-all duration-700 border border-white/5 dark:border-white/5 ${spanClass} ${heightClass}`}
+                className="group relative bg-[#F4EDE4] dark:bg-[#141210] rounded-[2.5rem] overflow-hidden shadow-md hover:shadow-2xl transition-all duration-500 hover:-translate-y-2 flex flex-col h-full border border-black/5 dark:border-white/5"
               >
-                {/* Background Image */}
-                <img
-                  src={product.image}
-                  alt={product.region}
-                  className="absolute inset-0 w-full h-full object-cover transform transition-transform duration-1000 ease-out group-hover:scale-110 group-hover:rotate-[0.5deg]"
-                />
+                {/* Framed Image Container */}
+                <div className="aspect-[4/3] m-4 mb-0 rounded-[2rem] overflow-hidden relative bg-black/5 dark:bg-white/5">
+                  <img
+                    src={product.image}
+                    alt={product.region}
+                    className="w-full h-full object-cover transform transition-transform duration-700 ease-out group-hover:scale-105"
+                  />
+                  {/* Floating Tag */}
+                  {product.tag && (
+                    <div className={`absolute top-4 left-4 backdrop-blur-md text-white text-[9px] font-extrabold uppercase tracking-widest px-3.5 py-1.5 rounded-full z-10 shadow-md border ${
+                      product.tag === "Best Seller" ? "bg-red-500/20 border-red-500/40 text-red-300 shadow-red-500/10" :
+                      product.tag === "Top Rated" ? "bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-amber-500/10" :
+                      product.tag === "New Arrival" ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300 shadow-emerald-500/10" :
+                      "bg-purple-500/20 border-purple-500/40 text-purple-300 shadow-purple-500/10"
+                    }`}>
+                      <span className="flex items-center gap-1">
+                        <span className="w-1 h-1 rounded-full bg-current animate-pulse" />
+                        {product.tag}
+                      </span>
+                    </div>
+                  )}
+                </div>
 
-                {/* Ambient Blur Glow behind the text on hover */}
-                <div className="absolute inset-0 bg-radial-gradient(ellipse at bottom, rgba(198,107,68,0.15) 0%, transparent 60%) opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-
-                {/* Gradient Overlays */}
-                <div className="absolute inset-0 bg-gradient-to-t from-black/95 via-black/45 to-transparent transition-opacity duration-700 group-hover:opacity-95" />
-                <div className="absolute inset-0 bg-black/15 group-hover:bg-transparent transition-colors duration-500" />
-
-                {/* Floating Tag */}
-                {product.tag && (
-                  <div className={`absolute top-6 left-6 backdrop-blur-md text-white text-[10px] font-extrabold uppercase tracking-widest px-4 py-1.5 rounded-full z-10 shadow-lg border ${
-                    product.tag === "Best Seller" ? "bg-red-500/20 border-red-500/40 text-red-300 shadow-red-500/10" :
-                    product.tag === "Top Rated" ? "bg-amber-500/20 border-amber-500/40 text-amber-300 shadow-amber-500/10" :
-                    product.tag === "New Arrival" ? "bg-emerald-500/20 border-emerald-500/40 text-emerald-300 shadow-emerald-500/10" :
-                    "bg-purple-500/20 border-purple-500/40 text-purple-300 shadow-purple-500/10"
-                  }`}>
-                    <span className="flex items-center gap-1.5">
-                      <span className="w-1.5 h-1.5 rounded-full bg-current animate-pulse" />
-                      {product.tag}
-                    </span>
-                  </div>
-                )}
-
-                {/* Content Overlay */}
-                <div className="absolute inset-0 p-6 lg:p-10 flex flex-col justify-end z-10">
-                  <div className="transform transition-transform duration-500 translate-y-0 lg:translate-y-24 group-hover:translate-y-0">
-                    <h2 className="text-3xl lg:text-4xl font-extrabold text-white mb-2 leading-tight font-serif drop-shadow-md group-hover:text-amber-400 transition-colors duration-300">
-                      {product.name}
-                    </h2>
-                    
-                    <p className="text-amber-400 font-bold tracking-[0.2em] uppercase text-xs mb-4 flex items-center gap-2">
-                      <span className="w-2 h-[1px] bg-amber-400" />
+                {/* Content Block */}
+                <div className="p-6 pt-5 flex-1 flex flex-col justify-between">
+                  <div className="space-y-4">
+                    {/* Process Type Badge */}
+                    <p className="text-red-600 dark:text-red-400 font-extrabold tracking-[0.15em] uppercase text-[10px] flex items-center gap-2">
+                      <span className="w-1.5 h-[1.5px] bg-red-600 dark:bg-red-400" />
                       {product.type}
                     </p>
 
-                    <p className="text-gray-300 text-sm leading-relaxed font-medium line-clamp-2 mb-5 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-75 max-w-2xl">
+                    {/* Title */}
+                    <h2 className="text-2xl font-black text-gray-900 dark:text-white leading-tight font-serif group-hover:text-red-600 dark:group-hover:text-red-400 transition-colors duration-300">
+                      {product.name}
+                    </h2>
+
+                    {/* Short Description */}
+                    <p className="text-gray-700 dark:text-gray-300 text-xs leading-relaxed font-normal line-clamp-3">
                       {product.short_desc}
                     </p>
 
-                    {/* Specs Grid */}
-                    <div className="grid grid-cols-2 gap-3 mb-5 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100 text-xs font-semibold">
-                      <div className="flex items-center gap-2.5 text-white/90 bg-white/5 backdrop-blur-md rounded-xl p-2.5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                        <MapPin className="w-4 h-4 text-amber-500 shrink-0" />
-                        <div>
-                          <p className="text-[9px] text-white/40 uppercase tracking-wider leading-none mb-1">Elevation</p>
-                          <p className="leading-none">{meta.altitude}</p>
-                        </div>
-                      </div>
-                      <div className="flex items-center gap-2.5 text-white/90 bg-white/5 backdrop-blur-md rounded-xl p-2.5 border border-white/10 hover:bg-white/10 transition-colors duration-300">
-                        <Award className="w-4 h-4 text-amber-500 shrink-0" />
-                        <div>
-                          <p className="text-[9px] text-white/40 uppercase tracking-wider leading-none mb-1">Cupping Score</p>
-                          <p className="leading-none">{meta.sca}</p>
-                        </div>
-                      </div>
-                    </div>
 
                     {/* Flavor Profile Tags */}
-                    <div className="flex flex-wrap gap-2 mb-6 lg:opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-150">
+                    <div className="flex flex-wrap gap-1.5 pb-2">
                       {product.profile?.split(", ").map((flavor, i) => (
                         <span
                           key={i}
-                          className="px-3 py-1 bg-white/5 backdrop-blur-md text-white/90 text-xs font-bold rounded-full border border-white/10 hover:bg-white/10 hover:border-white/20 transition-all duration-300"
+                          className="px-2.5 py-1 bg-white/60 dark:bg-white/5 backdrop-blur-sm text-gray-800 dark:text-white/80 text-[10px] font-bold rounded-lg border border-black/5 dark:border-white/10"
                         >
                           {flavor}
                         </span>
                       ))}
                     </div>
-
-                    <button
-                      type="button"
-                      onClick={() => openProduct(product)}
-                      className="inline-flex items-center justify-center gap-2 px-8 py-3.5 bg-gradient-to-r from-[#C66B44] to-[#E28743] text-white font-extrabold rounded-xl hover:from-[#A55233] hover:to-[#C66B44] transition-all duration-300 shadow-[0_8px_25px_rgba(198,107,68,0.35)] hover:shadow-[0_15px_35px_rgba(198,107,68,0.5)] lg:opacity-0 group-hover:opacity-100 duration-500 delay-200 transform hover:-translate-y-0.5 active:scale-95 text-sm"
-                    >
-                      Inquire Now
-                    </button>
                   </div>
-                </div>
 
-                {/* Hover premium border highlight */}
-                <div className="absolute inset-0 border-2 border-transparent group-hover:border-amber-500/25 pointer-events-none rounded-[2.5rem] transition-all duration-700 z-20" />
+                  {/* Inquiry Button */}
+                  <button
+                    type="button"
+                    onClick={() => openProduct(product)}
+                    className="w-full mt-5 inline-flex items-center justify-center gap-2 px-6 py-3.5 bg-gradient-to-r from-red-600 to-rose-500 text-white font-extrabold text-xs uppercase tracking-wider rounded-xl hover:from-red-700 hover:to-rose-600 transition-all duration-300 shadow-[0_4px_12px_rgba(220,38,38,0.15)] hover:shadow-[0_8px_20px_rgba(220,38,38,0.3)] active:scale-[0.98] transform active:translate-y-0"
+                  >
+                    Inquire Now
+                  </button>
+                </div>
               </div>
             );
           })}
@@ -264,7 +222,7 @@ const Products = () => {
 
                       <div className="grid grid-cols-1 sm:grid-cols-3 gap-4 py-6 border-y border-gray-100 dark:border-white/10">
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                          <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
                             <MapPin className="w-5 h-5" />
                           </div>
                           <div>
@@ -274,7 +232,7 @@ const Products = () => {
                         </div>
                         
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                          <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
                             <Award className="w-5 h-5" />
                           </div>
                           <div>
@@ -284,7 +242,7 @@ const Products = () => {
                         </div>
 
                         <div className="flex items-center gap-3">
-                          <div className="w-10 h-10 rounded-xl bg-amber-500/10 flex items-center justify-center text-amber-500 shrink-0">
+                          <div className="w-10 h-10 rounded-xl bg-red-500/10 flex items-center justify-center text-red-500 shrink-0">
                             <Flame className="w-5 h-5" />
                           </div>
                           <div>
@@ -312,7 +270,7 @@ const Products = () => {
                         <button
                           type="button"
                           onClick={() => setShowForm(true)}
-                          className="flex-1 flex items-center justify-center gap-2 py-4 bg-[#C66B44] text-white font-bold rounded-xl hover:bg-[#A55233] hover:shadow-[0_10px_30px_rgba(198,107,68,0.4)] hover:-translate-y-1 transition-all duration-300 shadow-xl"
+                          className="flex-1 flex items-center justify-center gap-2 py-4 bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 hover:shadow-[0_10px_30px_rgba(220,38,38,0.4)] hover:-translate-y-1 transition-all duration-300 shadow-xl"
                         >
                           <Mail className="w-5 h-5" />
                           Submit Request
@@ -431,7 +389,7 @@ const Products = () => {
                       <button
                         type="submit"
                         disabled={formStatus === "submitting"}
-                        className="w-full py-4 mt-auto bg-[#C66B44] text-white font-bold rounded-xl hover:bg-[#A55233] hover:-translate-y-1 transition-all duration-300 shadow-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
+                        className="w-full py-4 mt-auto bg-red-600 text-white font-bold rounded-xl hover:bg-red-700 hover:-translate-y-1 transition-all duration-300 shadow-xl flex items-center justify-center gap-2 disabled:opacity-70 disabled:cursor-not-allowed"
                       >
                         {formStatus === "submitting" ? (
                           "Sending Request..."
