@@ -35,20 +35,35 @@ const BlogCards = ({ blogs }) => {
   return (
     <div id="blog-cards-container" className="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
       {/* Title Area */}
-      <div className="text-center mb-16">
+      <div className="text-center mb-16 flex flex-col items-center">
         <motion.div 
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
+          className="flex flex-col items-center w-full"
         >
-          <h2 className="text-4xl md:text-5xl font-black text-transparent bg-clip-text bg-gradient-to-r from-[#D62828] to-orange-500 uppercase tracking-widest font-sans mb-4">
-            Hot Stories
+          <h2 
+            className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-widest flex flex-col items-center gap-2 mb-6"
+            style={{ fontFamily: '"Orbitron", sans-serif' }}
+          >
+            <span className="text-[#D62828]">LATEST</span>
+            <span className="text-black dark:text-white">ETHIOPIAN COFFEE</span>
+            <span className="text-[#D62828]">BLOG</span>
           </h2>
-          <div className="h-1 w-24 bg-gradient-to-r from-[#D62828] to-orange-500 mx-auto rounded-full mb-6"></div>
-          <p className="text-gray-600 dark:text-gray-400 font-medium max-w-2xl mx-auto text-lg">
-            Stay updated with trending insights, fresh stories, and top Ethiopian coffee highlights.
+          
+          <p 
+            className="text-gray-800 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
+            style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
+          >
+            Discover Ethiopia's rich coffee heritage, from unique regional flavors to traditional processing methods.
           </p>
+
+          {/* Decorative Divider */}
+          <div className="flex items-center gap-2">
+            <div className="h-1.5 w-12 bg-[#D62828] rounded-full"></div>
+            <div className="h-1.5 w-8 bg-gray-300 dark:bg-white rounded-full"></div>
+          </div>
         </motion.div>
       </div>
 
@@ -142,7 +157,7 @@ const BlogCards = ({ blogs }) => {
             className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${
               currentPage === 1
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-white/5 dark:text-gray-600"
-                : "bg-white text-gray-700 hover:bg-[#D62828] hover:text-white shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:bg-[#D62828]"
+                : "bg-white text-gray-700 hover:text-[#D62828] shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:text-[#D62828] border border-transparent hover:border-[#D62828]"
             }`}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
@@ -157,8 +172,8 @@ const BlogCards = ({ blogs }) => {
                 onClick={() => handlePageChange(number)}
                 className={`w-12 h-12 rounded-2xl font-bold text-sm transition-all duration-300 flex items-center justify-center ${
                   currentPage === number
-                    ? "bg-gradient-to-br from-[#D62828] to-orange-500 text-white shadow-lg shadow-red-500/30 transform -translate-y-1"
-                    : "bg-white text-gray-700 hover:bg-gray-50 shadow-md dark:bg-[#1a1a1a] dark:text-gray-300 dark:hover:bg-white/10"
+                    ? "bg-[#D62828] text-white shadow-lg"
+                    : "bg-white text-gray-700 hover:border-[#D62828] border border-transparent shadow-md dark:bg-[#1a1a1a] dark:text-gray-300 hover:text-[#D62828]"
                 }`}
               >
                 {number}
@@ -172,7 +187,7 @@ const BlogCards = ({ blogs }) => {
             className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${
               currentPage === totalPages
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-white/5 dark:text-gray-600"
-                : "bg-white text-gray-700 hover:bg-[#D62828] hover:text-white shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:bg-[#D62828]"
+                : "bg-white text-gray-700 hover:text-[#D62828] shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:text-[#D62828] border border-transparent hover:border-[#D62828]"
             }`}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
