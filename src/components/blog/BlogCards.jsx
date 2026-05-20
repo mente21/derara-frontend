@@ -44,7 +44,7 @@ const BlogCards = ({ blogs }) => {
           className="flex flex-col items-center w-full"
         >
           <h2 
-            className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-widest flex flex-col items-center gap-1 mb-4"
+            className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-widest flex flex-col items-center leading-none -space-y-1 md:-space-y-2 mb-6"
             style={{ fontFamily: '"Orbitron", sans-serif' }}
           >
             <span className="text-[#D62828]">THIS WEEK</span>
