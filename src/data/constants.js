@@ -433,88 +433,51 @@ export const BLOG_POSTS = [
 // GALLERY (replaces /ops/gallery)
 // ----------------------------------------------------------
 export const GALLERY_ITEMS = [
-  {
-    id: "g1",
-    title: "Yirgacheffe Washing Station",
-    description: "Morning activity at the cooperative washing station in the Gedeo Zone.",
-    category: "Processing",
-    image: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g2",
-    title: "Sun-Drying on Raised Beds",
-    description: "Natural-process cherries drying on traditional African raised beds.",
-    category: "Processing",
-    image: "https://images.unsplash.com/photo-1595981267035-7b04ca84a82d?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g3",
-    title: "Smallholder Farmer Portrait",
-    description: "A partner farmer from the Sidama region during the 2024 harvest season.",
-    category: "Farmers",
-    image: "https://images.unsplash.com/photo-1523741543316-beb7fc7023d8?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g4",
-    title: "Green Coffee Cupping",
-    description: "Our Q-Graders conducting rigorous pre-shipment cupping evaluation.",
-    category: "Quality",
-    image: "https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g5",
-    title: "Ethiopian Coffee Forest",
-    description: "Wild Arabica trees growing in their natural forest habitat in the Kaffa region.",
-    category: "Origin",
-    image: "https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g6",
-    title: "Coffee Ceremony",
-    description: "The traditional Ethiopian coffee ceremony — a timeless cultural institution.",
-    category: "Culture",
-    image: "https://images.unsplash.com/photo-1514432324607-a09d9b4aefdd?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g7",
-    title: "Export Container Loading",
-    description: "Preparing a full-container load of specialty Yirgacheffe for European export.",
-    category: "Logistics",
-    image: "https://images.unsplash.com/photo-1494961104209-3c223057bd26?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g8",
-    title: "Hand-Sorting Green Coffee",
-    description: "Skilled workers at the dry mill performing final hand-sorting before bagging.",
-    category: "Quality",
-    image: "https://images.unsplash.com/photo-1610632380989-680fe40816c6?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g9",
-    title: "Harar Heritage Farms",
-    description: "Ancient Harar coffeelands where dry-process traditions have continued for centuries.",
-    category: "Origin",
-    image: "https://images.unsplash.com/photo-1497935586351-b67a49e012bf?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g10",
-    title: "Community Training Program",
-    description: "Derara-sponsored post-harvest processing training for cooperative members.",
-    category: "Farmers",
-    image: "https://images.unsplash.com/photo-1529156069898-49953e39b3ac?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g11",
-    title: "Precision Milling",
-    description: "Hulling and density-sorting at our partner dry mill facility in Addis Ababa.",
-    category: "Processing",
-    image: "https://images.unsplash.com/photo-1559056199-641a0ac8b55e?auto=format&fit=crop&w=800&q=80",
-  },
-  {
-    id: "g12",
-    title: "Guji Highland Landscape",
-    description: "The breathtaking highland terrain of the Guji zone where our coffees are grown.",
-    category: "Origin",
-    image: "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=800&q=80",
-  },
+  // PROCESSING (6 items)
+  { id: "g1", title: "Processing Image 1", description: "Morning activity at the cooperative washing station.", category: "Processing", image: "/gallery/processing-1.jpg" },
+  { id: "g2", title: "Processing Image 2", description: "Natural-process cherries drying on traditional beds.", category: "Processing", image: "/gallery/processing-2.jpg" },
+  { id: "g3", title: "Processing Image 3", description: "Precision hulling and density-sorting.", category: "Processing", image: "/gallery/processing-3.jpg" },
+  { id: "g4", title: "Processing Image 4", description: "Washing and fermentation tanks.", category: "Processing", image: "/gallery/processing-4.jpg" },
+  { id: "g5", title: "Processing Image 5", description: "Sun-drying process over 25 days.", category: "Processing", image: "/gallery/processing-5.jpg" },
+  { id: "g6", title: "Processing Image 6", description: "Final preparation before milling.", category: "Processing", image: "/gallery/processing-6.jpg" },
+
+  // FARMERS (6 items)
+  { id: "g7", title: "Farmers Image 1", description: "A partner farmer from the Sidama region.", category: "Farmers", image: "/gallery/farmers-1.jpg" },
+  { id: "g8", title: "Farmers Image 2", description: "Community training program for post-harvest.", category: "Farmers", image: "/gallery/farmers-2.jpg" },
+  { id: "g9", title: "Farmers Image 3", description: "Hand-picking ripe cherries.", category: "Farmers", image: "/gallery/farmers-3.jpg" },
+  { id: "g10", title: "Farmers Image 4", description: "Farmers cooperative meeting.", category: "Farmers", image: "/gallery/farmers-4.jpg" },
+  { id: "g11", title: "Farmers Image 5", description: "Delivering cherries to the washing station.", category: "Farmers", image: "/gallery/farmers-5.jpg" },
+  { id: "g12", title: "Farmers Image 6", description: "A proud coffee farming family.", category: "Farmers", image: "/gallery/farmers-6.jpg" },
+
+  // QUALITY (6 items)
+  { id: "g13", title: "Quality Image 1", description: "Q-Graders conducting rigorous cupping evaluation.", category: "Quality", image: "/gallery/quality-1.jpg" },
+  { id: "g14", title: "Quality Image 2", description: "Hand-sorting green coffee for zero defects.", category: "Quality", image: "/gallery/quality-2.jpg" },
+  { id: "g15", title: "Quality Image 3", description: "Moisture content testing.", category: "Quality", image: "/gallery/quality-3.jpg" },
+  { id: "g16", title: "Quality Image 4", description: "Sample roasting lab.", category: "Quality", image: "/gallery/quality-4.jpg" },
+  { id: "g17", title: "Quality Image 5", description: "Screen size grading equipment.", category: "Quality", image: "/gallery/quality-5.jpg" },
+  { id: "g18", title: "Quality Image 6", description: "Final quality inspection.", category: "Quality", image: "/gallery/quality-6.jpg" },
+
+  // ORIGIN (6 items)
+  { id: "g19", title: "Origin Image 1", description: "Wild Arabica trees in their natural forest habitat.", category: "Origin", image: "/gallery/origin-1.jpg" },
+  { id: "g20", title: "Origin Image 2", description: "Ancient Harar coffeelands.", category: "Origin", image: "/gallery/origin-2.jpg" },
+  { id: "g21", title: "Origin Image 3", description: "The breathtaking highland terrain of Guji.", category: "Origin", image: "/gallery/origin-3.jpg" },
+  { id: "g22", title: "Origin Image 4", description: "Lush green hills of Yirgacheffe.", category: "Origin", image: "/gallery/origin-4.jpg" },
+  { id: "g23", title: "Origin Image 5", description: "High altitude coffee farms.", category: "Origin", image: "/gallery/origin-5.jpg" },
+  { id: "g24", title: "Origin Image 6", description: "Rich, volcanic soil of the Ethiopian highlands.", category: "Origin", image: "/gallery/origin-6.jpg" },
+
+  // CULTURE (6 items)
+  { id: "g25", title: "Culture Image 1", description: "The traditional Ethiopian coffee ceremony.", category: "Culture", image: "/gallery/culture-1.jpg" },
+  { id: "g26", title: "Culture Image 2", description: "Roasting beans over an open flame.", category: "Culture", image: "/gallery/culture-2.jpg" },
+  { id: "g27", title: "Culture Image 3", description: "Serving coffee in traditional Jebena.", category: "Culture", image: "/gallery/culture-3.jpg" },
+  { id: "g28", title: "Culture Image 4", description: "Incense and fresh coffee aromas.", category: "Culture", image: "/gallery/culture-4.jpg" },
+  { id: "g29", title: "Culture Image 5", description: "A cultural institution shared with guests.", category: "Culture", image: "/gallery/culture-5.jpg" },
+  { id: "g30", title: "Culture Image 6", description: "Traditional cups (Sini) arranged for serving.", category: "Culture", image: "/gallery/culture-6.jpg" },
+
+  // LOGISTICS (6 items)
+  { id: "g31", title: "Logistics Image 1", description: "Preparing a full-container load for export.", category: "Logistics", image: "/gallery/logistics-1.jpg" },
+  { id: "g32", title: "Logistics Image 2", description: "Bagging green coffee in grain-pro bags.", category: "Logistics", image: "/gallery/logistics-2.jpg" },
+  { id: "g33", title: "Logistics Image 3", description: "Warehouse storage and inventory.", category: "Logistics", image: "/gallery/logistics-3.jpg" },
+  { id: "g34", title: "Logistics Image 4", description: "Loading trucks bound for the port of Djibouti.", category: "Logistics", image: "/gallery/logistics-4.jpg" },
+  { id: "g35", title: "Logistics Image 5", description: "Documentation and export processing.", category: "Logistics", image: "/gallery/logistics-5.jpg" },
+  { id: "g36", title: "Logistics Image 6", description: "Palletized coffee ready for global shipping.", category: "Logistics", image: "/gallery/logistics-6.jpg" },
 ];
