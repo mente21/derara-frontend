@@ -44,19 +44,19 @@ const BlogCards = ({ blogs }) => {
           className="flex flex-col items-center w-full"
         >
           <h2 
-            className="text-4xl md:text-5xl lg:text-6xl font-black uppercase tracking-widest flex flex-col items-center gap-2 mb-6"
+            className="text-2xl md:text-3xl lg:text-4xl font-black uppercase tracking-widest flex flex-col items-center gap-1 mb-4"
             style={{ fontFamily: '"Orbitron", sans-serif' }}
           >
-            <span className="text-[#D62828]">LATEST</span>
-            <span className="text-black dark:text-white">ETHIOPIAN COFFEE</span>
-            <span className="text-[#D62828]">BLOG</span>
+            <span className="text-[#D62828]">THIS WEEK</span>
+            <span className="text-black dark:text-white">HOT</span>
+            <span className="text-[#D62828]">NEWS</span>
           </h2>
           
           <p 
-            className="text-gray-800 dark:text-gray-200 text-lg md:text-xl max-w-3xl mx-auto mb-8 leading-relaxed"
+            className="text-gray-600 dark:text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed"
             style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
           >
-            Discover Ethiopia's rich coffee heritage, from unique regional flavors to traditional processing methods.
+            Stay updated with trending insights, fresh stories, and top Ethiopian coffee highlights.
           </p>
 
           {/* Decorative Divider */}
