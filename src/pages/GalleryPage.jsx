@@ -53,11 +53,10 @@ const GalleryPage = () => {
             <button
               key={cat}
               onClick={() => setFilter(cat)}
-              className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border-2 ${
-                filter === cat
+              className={`px-6 py-2 rounded-full text-xs font-black uppercase tracking-widest transition-all duration-300 border-2 ${filter === cat
                   ? "bg-red-600 border-red-600 text-white shadow-lg shadow-red-500/25"
                   : "bg-transparent border-gray-200 dark:border-white/10 text-gray-500 hover:border-red-600/50"
-              }`}
+                }`}
             >
               {cat}
             </button>
@@ -87,8 +86,12 @@ const GalleryPage = () => {
                   <span className="text-[10px] font-black uppercase tracking-widest text-red-500 mb-2">
                     {item.category}
                   </span>
-                  <h3 className="text-white font-bold text-xl mb-1">{item.title}</h3>
-                  <p className="text-gray-300 text-xs line-clamp-2">{item.description}</p>
+                  {item.category !== "Processing" && item.category !== "Quality" && (
+                    <>
+                      <h3 className="text-white font-bold text-xl mb-1">{item.title}</h3>
+                      <p className="text-gray-300 text-xs line-clamp-2">{item.description}</p>
+                    </>
+                  )}
                   <div className="absolute top-6 right-6 w-10 h-10 bg-white/10 backdrop-blur-md rounded-full flex items-center justify-center text-white scale-0 group-hover:scale-100 transition-transform duration-500 delay-100">
                     <Maximize2 size={18} />
                   </div>
