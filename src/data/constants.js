@@ -13,12 +13,12 @@ export const CONTACT_INFO = {
   city: "Addis Ababa",
   country: "Ethiopia",
   socials: [
-    { platform: "LinkedIn",  url: "#" },
+    { platform: "LinkedIn", url: "#" },
     { platform: "Instagram", url: "#" },
-    { platform: "Twitter",   url: "#" },
-    { platform: "Facebook",  url: "#" },
-    { platform: "Telegram",  url: "#" },
-    { platform: "WhatsApp",  url: "#" },
+    { platform: "Twitter", url: "#" },
+    { platform: "Facebook", url: "#" },
+    { platform: "Telegram", url: "#" },
+    { platform: "WhatsApp", url: "#" },
   ],
 };
 
@@ -441,14 +441,6 @@ export const GALLERY_ITEMS = [
   { id: "g5", title: "Processing Image 5", description: "Sun-drying process over 25 days.", category: "Processing", image: "/gallery/processing-5.jpg" },
   { id: "g6", title: "Processing Image 6", description: "Final preparation before milling.", category: "Processing", image: "/gallery/processing-6.jpg" },
 
-  // FARMERS (6 items)
-  { id: "g7", title: "Farmers Image 1", description: "A partner farmer from the Sidama region.", category: "Farmers", image: "/gallery/farmers-1.jpg" },
-  { id: "g8", title: "Farmers Image 2", description: "Community training program for post-harvest.", category: "Farmers", image: "/gallery/farmers-2.jpg" },
-  { id: "g9", title: "Farmers Image 3", description: "Hand-picking ripe cherries.", category: "Farmers", image: "/gallery/farmers-3.jpg" },
-  { id: "g10", title: "Farmers Image 4", description: "Farmers cooperative meeting.", category: "Farmers", image: "/gallery/farmers-4.jpg" },
-  { id: "g11", title: "Farmers Image 5", description: "Delivering cherries to the washing station.", category: "Farmers", image: "/gallery/farmers-5.jpg" },
-  { id: "g12", title: "Farmers Image 6", description: "A proud coffee farming family.", category: "Farmers", image: "/gallery/farmers-6.jpg" },
-
   // QUALITY (6 items)
   { id: "g13", title: "Quality Image 1", description: "Q-Graders conducting rigorous cupping evaluation.", category: "Quality", image: "/gallery/quality-1.jpg" },
   { id: "g14", title: "Quality Image 2", description: "Hand-sorting green coffee for zero defects.", category: "Quality", image: "/gallery/quality-2.jpg" },
@@ -465,19 +457,5 @@ export const GALLERY_ITEMS = [
   { id: "g23", title: "Origin Image 5", description: "High altitude coffee farms.", category: "Origin", image: "/gallery/origin-5.jpg" },
   { id: "g24", title: "Origin Image 6", description: "Rich, volcanic soil of the Ethiopian highlands.", category: "Origin", image: "/gallery/origin-6.jpg" },
 
-  // CULTURE (6 items)
-  { id: "g25", title: "Culture Image 1", description: "The traditional Ethiopian coffee ceremony.", category: "Culture", image: "/gallery/culture-1.jpg" },
-  { id: "g26", title: "Culture Image 2", description: "Roasting beans over an open flame.", category: "Culture", image: "/gallery/culture-2.jpg" },
-  { id: "g27", title: "Culture Image 3", description: "Serving coffee in traditional Jebena.", category: "Culture", image: "/gallery/culture-3.jpg" },
-  { id: "g28", title: "Culture Image 4", description: "Incense and fresh coffee aromas.", category: "Culture", image: "/gallery/culture-4.jpg" },
-  { id: "g29", title: "Culture Image 5", description: "A cultural institution shared with guests.", category: "Culture", image: "/gallery/culture-5.jpg" },
-  { id: "g30", title: "Culture Image 6", description: "Traditional cups (Sini) arranged for serving.", category: "Culture", image: "/gallery/culture-6.jpg" },
-
-  // LOGISTICS (6 items)
-  { id: "g31", title: "Logistics Image 1", description: "Preparing a full-container load for export.", category: "Logistics", image: "/gallery/logistics-1.jpg" },
-  { id: "g32", title: "Logistics Image 2", description: "Bagging green coffee in grain-pro bags.", category: "Logistics", image: "/gallery/logistics-2.jpg" },
-  { id: "g33", title: "Logistics Image 3", description: "Warehouse storage and inventory.", category: "Logistics", image: "/gallery/logistics-3.jpg" },
-  { id: "g34", title: "Logistics Image 4", description: "Loading trucks bound for the port of Djibouti.", category: "Logistics", image: "/gallery/logistics-4.jpg" },
-  { id: "g35", title: "Logistics Image 5", description: "Documentation and export processing.", category: "Logistics", image: "/gallery/logistics-5.jpg" },
-  { id: "g36", title: "Logistics Image 6", description: "Palletized coffee ready for global shipping.", category: "Logistics", image: "/gallery/logistics-6.jpg" },
 ];
+
