@@ -8,7 +8,7 @@ export default function LatestBlog({ blogs }) {
     const finalPosts = blogs || [];
 
     return (
-        <div className="bg-white dark:bg-[#0a0a0a] py-24 sm:py-32 relative overflow-hidden transition-colors duration-300">
+        <div className="bg-white dark:bg-[#0a0a0a] py-16 sm:py-24 relative overflow-hidden transition-colors duration-300">
             {/* Background Decorative Blob - Yellow to Light Gray/Black */}
             <div className="absolute top-0 right-0 -mr-20 -mt-20 w-96 h-96 bg-black rounded-full mix-blend-multiply filter blur-3xl opacity-5 dark:opacity-20 animate-blob"></div>
             <div className="absolute bottom-0 left-0 -ml-20 -mb-20 w-96 h-96 bg-[#D62828] rounded-full mix-blend-multiply filter blur-3xl opacity-10 dark:opacity-20 animate-blob animation-delay-2000"></div>
@@ -54,16 +54,16 @@ export default function LatestBlog({ blogs }) {
                     whileInView={{ opacity: 1, y: 0 }}
                     viewport={{ once: true }}
                     transition={{ duration: 0.6 }}
-                    className="mx-auto max-w-2xl text-center mb-16"
+                    className="mx-auto max-w-2xl text-center mb-8"
                 >
                     <h2 className="text-3xl font-black tracking-widest sm:text-5xl uppercase" style={{ fontFamily: '"Orbitron", sans-serif' }}>
                         <span className="text-[#D62828]">Latest</span> <span className="text-black dark:text-white inline-block transform hover:scale-105 transition-transform duration-300 drop-shadow-sm">Ethiopian Coffee</span> <span className="text-[#D62828]">Blog</span>
                     </h2>
-                    <p className="mt-6 text-xl leading-relaxed text-gray-800 dark:text-gray-300 font-medium font-serif">
+                    <p className="mt-4 text-xl leading-relaxed text-gray-800 dark:text-gray-300 font-medium font-serif">
                         Discover Ethiopia’s rich coffee heritage, from unique regional flavors
                         to traditional processing methods.
                     </p>
-                    <div className="mt-6 flex justify-center gap-2">
+                    <div className="mt-3 flex justify-center gap-2">
                         <div className="h-2 w-16 bg-[#D62828] rounded-full"></div>
                         <div className="h-2 w-8 bg-black dark:bg-white rounded-full"></div>
                     </div>
