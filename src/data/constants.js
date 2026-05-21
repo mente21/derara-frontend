@@ -433,29 +433,38 @@ export const BLOG_POSTS = [
 // GALLERY (replaces /ops/gallery)
 // ----------------------------------------------------------
 export const GALLERY_ITEMS = [
-  // PROCESSING (6 items)
+  // PROCESSING (10 items)
   { id: "g1", title: "Processing Image 1", description: "Morning activity at the cooperative washing station.", category: "Processing", image: "/gallery/processing-1.jpg" },
   { id: "g2", title: "Processing Image 2", description: "Natural-process cherries drying on traditional beds.", category: "Processing", image: "/gallery/processing-2.jpg" },
   { id: "g3", title: "Processing Image 3", description: "Precision hulling and density-sorting.", category: "Processing", image: "/gallery/processing-3.jpg" },
   { id: "g4", title: "Processing Image 4", description: "Washing and fermentation tanks.", category: "Processing", image: "/gallery/processing-4.jpg" },
   { id: "g5", title: "Processing Image 5", description: "Sun-drying process over 25 days.", category: "Processing", image: "/gallery/processing-5.jpg" },
   { id: "g6", title: "Processing Image 6", description: "Final preparation before milling.", category: "Processing", image: "/gallery/processing-6.jpg" },
+  { id: "g7", title: "Processing Image 7", description: "Sorting and grading by size and density.", category: "Processing", image: "/gallery/processing-7.jpg" },
+  { id: "g8", title: "Processing Image 8", description: "Quality control sampling at the mill.", category: "Processing", image: "/gallery/processing-8.jpg" },
+  { id: "g9", title: "Processing Image 9", description: "Bagging processed coffee beans.", category: "Processing", image: "/gallery/processing-9.jpg" },
+  { id: "g10", title: "Processing Image 10", description: "Final inspecting and packaging.", category: "Processing", image: "/gallery/processing-10.jpg" },
 
-  // QUALITY (6 items)
-  { id: "g13", title: "Quality Image 1", description: "Q-Graders conducting rigorous cupping evaluation.", category: "Quality", image: "/gallery/quality-1.jpg" },
-  { id: "g14", title: "Quality Image 2", description: "Hand-sorting green coffee for zero defects.", category: "Quality", image: "/gallery/quality-2.jpg" },
-  { id: "g15", title: "Quality Image 3", description: "Moisture content testing.", category: "Quality", image: "/gallery/quality-3.jpg" },
-  { id: "g16", title: "Quality Image 4", description: "Sample roasting lab.", category: "Quality", image: "/gallery/quality-4.jpg" },
-  { id: "g17", title: "Quality Image 5", description: "Screen size grading equipment.", category: "Quality", image: "/gallery/quality-5.jpg" },
-  { id: "g18", title: "Quality Image 6", description: "Final quality inspection.", category: "Quality", image: "/gallery/quality-6.jpg" },
+  // QUALITY (11 items)
+  { id: "g11", title: "Quality Image 1", description: "Q-Graders conducting rigorous cupping evaluation.", category: "Quality", image: "/gallery/quality-1.jpg" },
+  { id: "g12", title: "Quality Image 2", description: "Hand-sorting green coffee for zero defects.", category: "Quality", image: "/gallery/quality-2.jpg" },
+  { id: "g13", title: "Quality Image 3", description: "Moisture content testing.", category: "Quality", image: "/gallery/quality-3.jpg" },
+  { id: "g14", title: "Quality Image 4", description: "Sample roasting lab.", category: "Quality", image: "/gallery/quality-4.jpg" },
+  { id: "g15", title: "Quality Image 5", description: "Screen size grading equipment.", category: "Quality", image: "/gallery/quality-5.jpg" },
+  { id: "g16", title: "Quality Image 6", description: "Final quality inspection.", category: "Quality", image: "/gallery/quality-6.jpg" },
+  { id: "g17", title: "Quality Image 7", description: "Density sorting and color grading.", category: "Quality", image: "/gallery/quality-7.jpg" },
+  { id: "g18", title: "Quality Image 8", description: "Laboratory testing equipment.", category: "Quality", image: "/gallery/quality-8.jpg" },
+  { id: "g19", title: "Quality Image 9", description: "Premium grade classification.", category: "Quality", image: "/gallery/quality-9.jpg" },
+  { id: "g20", title: "Quality Image 10", description: "Defect identification and removal.", category: "Quality", image: "/gallery/quality-10.jpg" },
+  { id: "g21", title: "Quality Image 11", description: "Final quality certification.", category: "Quality", image: "/gallery/quality-11.jpg" },
 
   // ORIGIN (6 items)
-  { id: "g19", title: "Origin Image 1", description: "Wild Arabica trees in their natural forest habitat.", category: "Origin", image: "/gallery/origin-1.jpg" },
-  { id: "g20", title: "Origin Image 2", description: "Ancient Harar coffeelands.", category: "Origin", image: "/gallery/origin-2.jpg" },
-  { id: "g21", title: "Origin Image 3", description: "The breathtaking highland terrain of Guji.", category: "Origin", image: "/gallery/origin-3.jpg" },
-  { id: "g22", title: "Origin Image 4", description: "Lush green hills of Yirgacheffe.", category: "Origin", image: "/gallery/origin-4.jpg" },
-  { id: "g23", title: "Origin Image 5", description: "High altitude coffee farms.", category: "Origin", image: "/gallery/origin-5.jpg" },
-  { id: "g24", title: "Origin Image 6", description: "Rich, volcanic soil of the Ethiopian highlands.", category: "Origin", image: "/gallery/origin-6.jpg" },
+  { id: "g22", title: "Origin Image 1", description: "Wild Arabica trees in their natural forest habitat.", category: "Origin", image: "/gallery/origin-1.jpg" },
+  { id: "g23", title: "Origin Image 2", description: "Ancient Harar coffeelands.", category: "Origin", image: "/gallery/origin-2.jpg" },
+  { id: "g24", title: "Origin Image 3", description: "The breathtaking highland terrain of Guji.", category: "Origin", image: "/gallery/origin-3.jpg" },
+  { id: "g25", title: "Origin Image 4", description: "Lush green hills of Yirgacheffe.", category: "Origin", image: "/gallery/origin-4.jpg" },
+  { id: "g26", title: "Origin Image 5", description: "High altitude coffee farms.", category: "Origin", image: "/gallery/origin-5.jpg" },
+  { id: "g27", title: "Origin Image 6", description: "Rich, volcanic soil of the Ethiopian highlands.", category: "Origin", image: "/gallery/origin-6.jpg" },
 
 ];
 
