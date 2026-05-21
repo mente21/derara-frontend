@@ -458,13 +458,11 @@ export const GALLERY_ITEMS = [
   { id: "g20", title: "Quality Image 10", description: "Defect identification and removal.", category: "Quality", image: "/gallery/quality-10.jpg" },
   { id: "g21", title: "Quality Image 11", description: "Final quality certification.", category: "Quality", image: "/gallery/quality-11.jpg" },
 
-  // ORIGIN (6 items)
-  { id: "g22", title: "Origin Image 1", description: "Wild Arabica trees in their natural forest habitat.", category: "Origin", image: "/gallery/origin-1.jpg" },
-  { id: "g23", title: "Origin Image 2", description: "Ancient Harar coffeelands.", category: "Origin", image: "/gallery/origin-2.jpg" },
-  { id: "g24", title: "Origin Image 3", description: "The breathtaking highland terrain of Guji.", category: "Origin", image: "/gallery/origin-3.jpg" },
-  { id: "g25", title: "Origin Image 4", description: "Lush green hills of Yirgacheffe.", category: "Origin", image: "/gallery/origin-4.jpg" },
-  { id: "g26", title: "Origin Image 5", description: "High altitude coffee farms.", category: "Origin", image: "/gallery/origin-5.jpg" },
-  { id: "g27", title: "Origin Image 6", description: "Rich, volcanic soil of the Ethiopian highlands.", category: "Origin", image: "/gallery/origin-6.jpg" },
+  // ORIGIN (4 items)
+  { id: "g22", title: "Sidama", description: "Wild Arabica trees in their natural forest habitat.", category: "Origin", image: "/gallery/origin-1.jpg" },
+  { id: "g23", title: "Guji Region", description: "The breathtaking highland terrain of Guji.", category: "Origin", image: "/gallery/origin-2.jpg" },
+  { id: "g24", title: "Limu", description: "Rich coffee heritage from the Limu region.", category: "Origin", image: "/gallery/origin-3.jpg" },
+  { id: "g25", title: "Yirgacheffe", description: "Lush green hills of Yirgacheffe.", category: "Origin", image: "/gallery/origin-4.jpg" },
 
 ];
 
