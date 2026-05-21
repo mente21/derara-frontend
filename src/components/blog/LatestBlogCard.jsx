@@ -74,16 +74,15 @@ export default function LatestBlog({ blogs }) {
 
                     {finalPosts.map((post, index) => {
                         // Normalize Data (Handle Backend vs Static)
-                        const isDynamic = !!post._id;
                         const title = post.title;
                         const description = post.description;
-                        const imgSrc = isDynamic ? post.image : post.imgSrc;
-                        const date = isDynamic ? new Date(post.createdAt || Date.now()).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : post.date;
-                        const categoryTitle = isDynamic ? (post.category || 'General') : post.category?.title;
-                        const categoryHref = isDynamic ? '#' : post.category?.href;
-                        const authorName = isDynamic ? (post.author || 'Mentesnot D.') : post.author?.name;
-                        const authorRole = isDynamic ? '' : post.author?.role;
-                        const authorImg = isDynamic ? null : post.author?.imageUrl; // Backend doesn't have author image yet, or maybe user not entering it? Dashboard has 'image' for Post, but not Author avatar. Author is text input.
+                        const imgSrc = post.image || post.imgSrc || post.smallImgSrc;
+                        const date = post.createdAt ? new Date(post.createdAt).toLocaleDateString('en-US', { year: 'numeric', month: 'short', day: 'numeric' }) : post.date;
+                        const categoryTitle = typeof post.category === 'string' ? post.category : (post.category?.title || 'General');
+                        const categoryHref = post.category?.href || '#';
+                        const authorName = typeof post.author === 'string' ? post.author : (post.author?.name || 'Mentesnot D.');
+                        const authorRole = typeof post.author === 'string' ? '' : post.author?.role;
+                        const authorImg = typeof post.author === 'string' ? null : post.author?.imageUrl;
 
                         return (
                             <motion.article
