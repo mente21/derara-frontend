@@ -36,14 +36,14 @@ const BlogCards = ({ blogs }) => {
     <div id="blog-cards-container" className="max-w-[85rem] px-4 py-16 sm:px-6 lg:px-8 mx-auto">
       {/* Title Area */}
       <div className="text-center mb-16 flex flex-col items-center">
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0, y: 20 }}
           whileInView={{ opacity: 1, y: 0 }}
           viewport={{ once: true }}
           transition={{ duration: 0.6 }}
           className="flex flex-col items-center w-full"
         >
-          <h2 
+          <h2
             className="text-3xl md:text-4xl lg:text-5xl font-black uppercase tracking-widest flex flex-col items-center leading-none -space-y-1 md:-space-y-2 mb-6"
             style={{ fontFamily: '"Orbitron", sans-serif' }}
           >
@@ -51,8 +51,8 @@ const BlogCards = ({ blogs }) => {
             <span className="text-black dark:text-white">HOT</span>
             <span className="text-[#D62828]">NEWS</span>
           </h2>
-          
-          <p 
+
+          <p
             className="text-gray-600 dark:text-gray-300 text-base md:text-lg max-w-2xl mx-auto mb-6 leading-relaxed"
             style={{ fontFamily: '"Playfair Display", Georgia, serif' }}
           >
@@ -113,7 +113,7 @@ const BlogCards = ({ blogs }) => {
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-4 line-clamp-2 leading-snug group-hover:text-[#D62828] transition-colors duration-300">
                   {post.title}
                 </h3>
-                
+
                 <p className="text-gray-600 dark:text-gray-400 text-sm line-clamp-3 leading-relaxed mb-8">
                   {post.description}
                 </p>
@@ -123,10 +123,10 @@ const BlogCards = ({ blogs }) => {
                   <div className="inline-flex items-center px-6 py-2.5 rounded-full font-bold text-sm tracking-widest uppercase text-white bg-[#D62828] relative overflow-hidden group/btn shadow-md hover:shadow-lg transition-all duration-300">
                     {/* Hover Gradient Overlay */}
                     <div className="absolute inset-0 w-full h-full bg-gradient-to-r from-orange-500 via-[#D62828] to-yellow-500 opacity-0 group-hover/btn:opacity-100 transition-opacity duration-500"></div>
-                    
+
                     {/* Content */}
                     <span className="relative flex items-center z-10">
-                      Read Article 
+                      Read Article
                       <svg
                         className="ml-2 w-5 h-5 transform transition-transform duration-500 group-hover/btn:translate-x-1"
                         xmlns="http://www.w3.org/2000/svg"
@@ -154,11 +154,10 @@ const BlogCards = ({ blogs }) => {
           <button
             onClick={() => handlePageChange(Math.max(1, currentPage - 1))}
             disabled={currentPage === 1}
-            className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${
-              currentPage === 1
+            className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${currentPage === 1
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-white/5 dark:text-gray-600"
                 : "bg-white text-gray-700 hover:text-[#D62828] shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:text-[#D62828] border border-transparent hover:border-[#D62828]"
-            }`}
+              }`}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M15.75 19.5L8.25 12l7.5-7.5" />
@@ -170,11 +169,10 @@ const BlogCards = ({ blogs }) => {
               <button
                 key={number}
                 onClick={() => handlePageChange(number)}
-                className={`w-12 h-12 rounded-2xl font-bold text-sm transition-all duration-300 flex items-center justify-center ${
-                  currentPage === number
+                className={`w-12 h-12 rounded-2xl font-bold text-sm transition-all duration-300 flex items-center justify-center ${currentPage === number
                     ? "bg-[#D62828] text-white shadow-lg"
                     : "bg-white text-gray-700 hover:border-[#D62828] border border-transparent shadow-md dark:bg-[#1a1a1a] dark:text-gray-300 hover:text-[#D62828]"
-                }`}
+                  }`}
               >
                 {number}
               </button>
@@ -184,11 +182,10 @@ const BlogCards = ({ blogs }) => {
           <button
             onClick={() => handlePageChange(Math.min(totalPages, currentPage + 1))}
             disabled={currentPage === totalPages}
-            className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${
-              currentPage === totalPages
+            className={`p-3 rounded-2xl transition-all duration-300 flex items-center justify-center ${currentPage === totalPages
                 ? "bg-gray-100 text-gray-400 cursor-not-allowed dark:bg-white/5 dark:text-gray-600"
                 : "bg-white text-gray-700 hover:text-[#D62828] shadow-md dark:bg-[#1a1a1a] dark:text-white dark:hover:text-[#D62828] border border-transparent hover:border-[#D62828]"
-            }`}
+              }`}
           >
             <svg className="w-5 h-5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
               <path strokeLinecap="round" strokeLinejoin="round" d="M8.25 4.5l7.5 7.5-7.5 7.5" />
