@@ -13,9 +13,9 @@ import "../../styles/loader.css";
  * @param {boolean} fullScreen - Whether to show as a full-screen overlay
  * @param {string} text - Optional loading text to display below the logo
  */
-const ProfessionalLoader = ({ 
-  size = "medium", 
-  centered = true, 
+const ProfessionalLoader = ({
+  size = "medium",
+  centered = true,
   className = "",
   fullScreen = false,
   text = ""
@@ -32,7 +32,7 @@ const ProfessionalLoader = ({
 
   const loaderContent = (
     <div className={`${centered && !fullScreen ? "flex flex-col items-center justify-center" : ""} ${className}`}>
-      
+
       {/* Logo with smooth fade and scale animation */}
       <div className="relative flex flex-col items-center justify-center animate-fade-scale">
         <img
@@ -40,7 +40,7 @@ const ProfessionalLoader = ({
           alt="Loading..."
           className={`${sizeClass} object-contain`}
         />
-        
+
         {/* Loading text */}
         {text && (
           <p className="mt-4 text-white text-sm font-medium animate-pulse">

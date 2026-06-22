@@ -1,7 +1,8 @@
 import React, { useRef, useEffect, useState } from "react";
 import { ArrowRight, MapPin, Thermometer, Mountain, Droplets } from "lucide-react";
 import { Link } from "react-router-dom";
-
+import local from "./images/local_ex.png"
+import gujii from "./images/gujiii.png"
 const regions = [
   {
     id: "yirgacheffe",
@@ -15,7 +16,7 @@ const regions = [
     desc: "The world's most celebrated coffee origin — Yirgacheffe's washed lots define clarity, florals, and brightness at the highest level.",
     color: "#ef4444",
     glow: "rgba(239,68,68,0.2)",
-    image: "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=900&q=80",
+    image: local,
     dot: { top: "62%", left: "35%" },
   },
   {
@@ -45,7 +46,7 @@ const regions = [
     desc: "High-altitude Guji lots are prized for their exceptional density and the bold tropical-fruit sweetness of their natural-process lots.",
     color: "#22c55e",
     glow: "rgba(34,197,94,0.2)",
-    image: "https://images.unsplash.com/photo-1504609813442-a8924e83f76e?auto=format&fit=crop&w=900&q=80",
+    image: gujii,
     dot: { top: "55%", left: "42%" },
   },
   {

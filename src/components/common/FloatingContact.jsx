@@ -38,7 +38,7 @@ const FloatingContact = () => {
             initial={{ opacity: 0, scale: 0.8, y: 20, x: 20 }}
             animate={{ opacity: 1, scale: 1, y: 0, x: 0 }}
             exit={{ opacity: 0, scale: 0.8, y: 20, x: 20 }}
-            className="mb-4 flex flex-col items-end gap-3"
+            className="mb-4 flex flex-col items-end gap-2 max-h-[160px] overflow-y-auto overflow-x-hidden scrollbar-thin py-1 pr-1"
           >
             {socials.map((social, idx) => (
               <motion.a
@@ -49,12 +49,12 @@ const FloatingContact = () => {
                 initial={{ opacity: 0, x: 20 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ delay: idx * 0.05 }}
-                className="group flex flex-row-reverse items-center gap-3 bg-white dark:bg-gray-800 p-2 pl-4 rounded-full shadow-lg border border-gray-100 dark:border-white/10 hover:border-red-500/50 hover:shadow-red-500/10 transition-all duration-300"
+                className="group flex flex-row-reverse items-center gap-2 bg-white dark:bg-gray-800 p-1.5 pl-3 rounded-full shadow-md border border-gray-100 dark:border-white/10 hover:border-red-500/50 hover:shadow-red-500/10 transition-all duration-300 mb-1"
               >
-                <div className="w-10 h-10 flex items-center justify-center bg-red-600 text-white rounded-full group-hover:scale-110 transition-transform duration-300 shadow-md">
+                <div className="w-8 h-8 flex items-center justify-center bg-red-600 text-white text-sm rounded-full group-hover:scale-110 transition-transform duration-300 shadow-md">
                   {socialIcons[social.platform] || <FaFacebookF />}
                 </div>
-                <span className="text-sm font-bold text-gray-700 dark:text-gray-200 group-hover:text-red-500 transition-colors">
+                <span className="text-xs font-bold text-gray-700 dark:text-gray-200 group-hover:text-red-500 transition-colors">
                   {social.platform}
                 </span>
               </motion.a>
@@ -67,16 +67,16 @@ const FloatingContact = () => {
         whileHover={{ scale: 1.1 }}
         whileTap={{ scale: 0.9 }}
         onClick={() => setIsOpen(!isOpen)}
-        className={`w-16 h-16 rounded-full flex items-center justify-center shadow-2xl transition-colors duration-300 relative ${
+        className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center shadow-2xl transition-colors duration-300 relative ${
           isOpen
             ? "bg-gray-900 dark:bg-white text-white dark:text-gray-900"
             : "bg-red-600 text-white"
         }`}
       >
-        {isOpen ? <IoClose size={32} /> : <FaMessage size={28} />}
+        {isOpen ? <IoClose className="w-5 h-5 md:w-6 md:h-6" /> : <FaMessage className="w-4 h-4 md:w-5 md:h-5" />}
 
         {!isOpen && (
-          <span className="absolute -top-1 -right-1 w-4 h-4 bg-yellow-400 rounded-full animate-ping" />
+          <span className="absolute -top-1 -right-1 w-2.5 h-2.5 md:w-3 md:h-3 bg-yellow-400 rounded-full animate-ping" />
         )}
       </motion.button>
     </div>

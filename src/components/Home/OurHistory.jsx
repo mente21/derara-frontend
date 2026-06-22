@@ -3,14 +3,13 @@ import { Flag, Award, TrendingUp, Users, Calendar } from "lucide-react";
 import { HISTORY_DATA } from "../../data/constants";
 import localFarmers from "./images/localfarmers.png";
 import globalVision from "./images/globalvision.png";
-
+import local from "./images/local_ex.png"
 // High-quality image perfectly matching "innovative processing" and "empowering community"
-const excellence = "https://images.unsplash.com/photo-1611854779393-1b2da9d400fe?auto=format&fit=crop&w=800&q=80";
 
 const getDisplayImage = (img) => {
   if (!img) return localFarmers;
   if (img === "localfarmers.png") return localFarmers;
-  if (img === "excellence.jpg") return excellence;
+  if (img === "excellence.jpg") return local;
   if (img === "globalvision.png") return globalVision;
   return img;
 };
@@ -174,18 +173,18 @@ const OurHistory = () => {
 
                   {/* Connector (Desktop only) */}
                   <div className="hidden md:flex w-[10%] items-center justify-center relative">
-                     {/* Horizontal line connecting them */}
-                     <div className="absolute h-px w-full bg-gray-200 dark:bg-white/10" style={{ top: "50%" }} />
-                     {/* Center dot */}
-                     <div 
-                        className="relative w-10 h-10 rounded-full flex items-center justify-center z-10 bg-[#fafafa] dark:bg-[#0a0a0a]"
-                        style={{
-                          border: `1px solid ${accent.border}`,
-                          boxShadow: `0 0 20px ${accent.glow}`,
-                        }}
-                     >
-                        <div className="w-3 h-3 rounded-full" style={{ backgroundColor: accent.text }} />
-                     </div>
+                    {/* Horizontal line connecting them */}
+                    <div className="absolute h-px w-full bg-gray-200 dark:bg-white/10" style={{ top: "50%" }} />
+                    {/* Center dot */}
+                    <div
+                      className="relative w-10 h-10 rounded-full flex items-center justify-center z-10 bg-[#fafafa] dark:bg-[#0a0a0a]"
+                      style={{
+                        border: `1px solid ${accent.border}`,
+                        boxShadow: `0 0 20px ${accent.glow}`,
+                      }}
+                    >
+                      <div className="w-3 h-3 rounded-full" style={{ backgroundColor: accent.text }} />
+                    </div>
                   </div>
 
                   {/* Text side */}

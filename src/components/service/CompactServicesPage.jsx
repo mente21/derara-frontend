@@ -63,7 +63,7 @@ const servicesData = [
         title: "WHOLESALE PARTNERSHIP",
         tagline: "Built for Roasters",
         description: "Flexible volume contracts for roasters and distributors globally. Personalized consultation to match specific flavor profiles and pricing needs with dedicated support throughout your journey.",
-        image: wholesaleNewImg,
+        image: partnershipHandshakeImg,
         bentoImage: partnershipHandshakeImg,
         features: [
             "Volume Contracts",
@@ -113,7 +113,7 @@ const BrewlabServicesPage = () => {
                         tagline: item.features ? item.features.split(',')[0] : "Premium Service", // Use first feature as tagline fallback
                         description: item.description,
                         image: item.image || (index === 0 ? ethiopianFarmerImg : (index === 1 ? precisionProcessingImg : (index === 2 ? logisticsNewImg : wholesaleNewImg))),
-                         // Fallback bento images
+                        // Fallback bento images
                         bentoImage: item.bentoImage || item.image || (index === 1 ? processingDryingImg : (index === 2 ? logisticsTruckImg : partnershipHandshakeImg)),
                         features: item.features ? item.features.split(',').map(f => f.trim()) : ["Premium Quality", "Certified"]
                     }));
@@ -130,7 +130,7 @@ const BrewlabServicesPage = () => {
 
     // Check if we have dynamic data, else use static fallback (mostly during initial load)
     const displayServices = services.length > 0 ? services : servicesData;
- 
+
     return (
         <div className="bg-[#2D1B13] text-white overflow-hidden">
             {/* Hero Section - Redesigned */}
@@ -258,22 +258,9 @@ const BrewlabServicesPage = () => {
                         className="flex flex-col md:flex-row items-center justify-center gap-4"
                     >
                         <button 
-                            onClick={() => {
-                                if (isSignedIn) {
-                                    navigate('/dashboard');
-                                } else {
-                                    openSignIn({
-                                        afterSignInUrl: '/dashboard',
-                                        redirectUrl: '/dashboard'
-                                    });
-                                }
-                            }}
-                            className="px-6 py-2.5 bg-[#2D1B13] text-[#FFC436] text-sm md:text-base font-black rounded-full hover:scale-105 transition-transform duration-300 shadow-xl border-2 border-[#2D1B13]"
-                        >
-                            GET A QUOTE
-                        </button>
-                        <button className="px-6 py-2.5 bg-transparent text-[#2D1B13] text-sm md:text-base font-black rounded-full hover:bg-[#2D1B13] hover:text-[#FFC436] transition-all duration-300 border-2 border-[#2D1B13]">
-                            LEARN MORE
+                            onClick={() => navigate('/contact')}
+                            className="px-6 py-2.5 bg-[#2D1B13] text-[#FFC436] text-sm md:text-base font-black rounded-full hover:scale-105 transition-transform duration-300 shadow-xl border-2 border-[#2D1B13]">
+                            CONTACT US
                         </button>
                     </motion.div>
 
@@ -526,22 +513,15 @@ const BrewlabServicesPage = () => {
                         transition={{ duration: 0.8, delay: 0.3 }}
                         className="flex items-center justify-center gap-4"
                     >
-                        <button 
-                             onClick={() => {
-                                if (isSignedIn) {
-                                    navigate('/dashboard');
-                                } else {
-                                    openSignIn({
-                                        afterSignInUrl: '/dashboard',
-                                        redirectUrl: '/dashboard'
-                                    });
-                                }
-                            }}
+                        <button
+                            onClick={() => navigate('/contact')}
                             className="px-10 py-5 bg-[#FFB500] text-[#2D1B13] font-black rounded-full hover:bg-white transition-all duration-300 shadow-2xl text-xl"
                         >
                             GET IN TOUCH
                         </button>
-                        <button className="w-16 h-16 bg-white text-[#2D1B13] rounded-full flex items-center justify-center hover:bg-[#FFB500] transition-all duration-300 shadow-2xl">
+                        <button 
+                            onClick={() => navigate('/contact')}
+                            className="w-16 h-16 bg-white text-[#2D1B13] rounded-full flex items-center justify-center hover:bg-[#FFB500] transition-all duration-300 shadow-2xl">
                             <svg className="w-7 h-7" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                                 <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
                             </svg>

@@ -110,7 +110,7 @@ export const TESTIMONIALS = [
     name: "Hans Gruber",
     role: "Head Buyer",
     company: "Vienna Roasters GmbH",
-    image: "https://i.pravatar.cc/150?img=11",
+    image: "https://randomuser.me/api/portraits/men/32.jpg",
     isVisible: true,
   },
   {
@@ -120,7 +120,7 @@ export const TESTIMONIALS = [
     name: "Sophie Laurent",
     role: "Procurement Director",
     company: "Café de Paris SAS",
-    image: "https://i.pravatar.cc/150?img=47",
+    image: "https://randomuser.me/api/portraits/women/44.jpg",
     isVisible: true,
   },
   {
@@ -130,7 +130,7 @@ export const TESTIMONIALS = [
     name: "James Okafor",
     role: "Q-Grader & Founder",
     company: "Lagos Specialty Coffee Co.",
-    image: "https://i.pravatar.cc/150?img=68",
+    image: "https://randomuser.me/api/portraits/men/22.jpg",
     isVisible: true,
   },
   {
@@ -140,7 +140,7 @@ export const TESTIMONIALS = [
     name: "Yuki Tanaka",
     role: "Import Manager",
     company: "Tokyo Bean Trade Ltd.",
-    image: "https://i.pravatar.cc/150?img=32",
+    image: "https://randomuser.me/api/portraits/men/46.jpg",
     isVisible: true,
   },
   {
@@ -150,7 +150,7 @@ export const TESTIMONIALS = [
     name: "Carlos Mendes",
     role: "Co-Founder",
     company: "São Paulo Specialty Roasters",
-    image: "https://i.pravatar.cc/150?img=59",
+    image: "https://randomuser.me/api/portraits/men/75.jpg",
     isVisible: true,
   },
 ];
@@ -158,7 +158,7 @@ export const TESTIMONIALS = [
 // ----------------------------------------------------------
 // PRODUCTS (replaces /ops/products)
 // ----------------------------------------------------------
-import yirgachafenatural from "../assets/yirgachafenatural.png";
+import yirgachafenatural from "../assets/yirgacheffe.png";
 import yirgachafeWashed from "../assets/yirgachafeWashed.png";
 import sidamaWashed from "../assets/sidamaWashed.png";
 import sidamaImage from "../assets/sidamma.jpg";
@@ -302,7 +302,7 @@ export const BLOG_POSTS = [
     content: "Ethiopia's coffee sector experienced a historic performance during the 2024/2025 fiscal year, achieving a record-breaking US$2.65 billion in coffee export earnings. The country exported approximately 470,000 tonnes (or about 7 million 60-kg bags) of coffee. This performance accounted for over 40% of the nation's total agricultural export earnings, underscoring coffee's critical role in the Ethiopian economy.",
     image: "/news/news-1.jpg",
     category: "Export & Economy",
-    author: "Mentesnot D.",
+    author: "Teklu",
     date: "May 15, 2026",
     createdAt: "2026-05-15T09:00:00Z",
   },
@@ -313,7 +313,7 @@ export const BLOG_POSTS = [
     content: "The adoption of a market-based foreign exchange rate system in Ethiopia has significantly improved export competitiveness for the 2024/2025 season. Additionally, recent policy reforms allowing producers with sufficient land to export directly have helped farmers capture a larger share of the value, streamlining the supply chain and encouraging higher quality production.",
     image: "/news/news-2.jpg",
     category: "Policy & Trade",
-    author: "Mentesnot D.",
+    author: "Telahun",
     date: "May 10, 2026",
     createdAt: "2026-05-10T09:00:00Z",
   },
@@ -324,7 +324,7 @@ export const BLOG_POSTS = [
     content: "National programs, most notably the 'Green Legacy' tree-planting initiative, have played a vital role in boosting overall coffee production capacity. By focusing on the rejuvenation of aging coffee trees and expanding shaded farming areas, Ethiopia is ensuring the long-term sustainability and volume growth necessary to meet surging global demand.",
     image: "/news/news-3.jpg",
     category: "Sustainability",
-    author: "Mentesnot D.",
+    author: "Hundesa",
     date: "May 05, 2026",
     createdAt: "2026-05-05T09:00:00Z",
   },
@@ -335,7 +335,7 @@ export const BLOG_POSTS = [
     content: "There is an ongoing strategic shift in Ethiopia toward increasing the export of value-added (processed and roasted) coffee rather than relying solely on raw green bean exports. The government is actively working to modernize the sector and invest in local processing facilities, aiming to capture more revenue and create local jobs within the coffee value chain.",
     image: "/news/news-4.jpg",
     category: "Market Strategy",
-    author: "Mentesnot D.",
+    author: "Teklu",
     date: "April 28, 2026",
     createdAt: "2026-04-28T09:00:00Z",
   },
@@ -346,7 +346,7 @@ export const BLOG_POSTS = [
     content: "To maximize the value of its world-renowned coffee regions, the Ethiopian government and coffee boards are intensifying efforts to protect the intellectual property of famous origins such as Sidama, Yirgacheffe, and Harar. Securing these trademarks in international markets ensures that Ethiopian farmers receive premium prices for their unique, terroir-driven coffees.",
     image: "/news/news-5.jpg",
     category: "Global Market",
-    author: "Mentesnot D.",
+    author: "Telahun",
     date: "April 20, 2026",
     createdAt: "2026-04-20T09:00:00Z",
   },
@@ -357,7 +357,7 @@ export const BLOG_POSTS = [
     content: "Ethiopia’s primary coffee export markets have shown robust demand in the 2024/2025 fiscal year. Saudi Arabia, Germany, and the United States remain the top destinations, with Belgium, South Korea, and Japan also representing significant market shares. Strong diplomatic and trade relations continue to bolster these vital export channels.",
     image: "/news/news-6.jpg",
     category: "Export Destinations",
-    author: "Mentesnot D.",
+    author: "Hundesa",
     date: "April 15, 2026",
     createdAt: "2026-04-15T09:00:00Z",
   },
@@ -368,7 +368,7 @@ export const BLOG_POSTS = [
     content: "Projections for the 2025/2026 marketing year remain highly optimistic. Output is expected to reach record levels, with agricultural estimates forecasting approximately 11.6 million 60-kg bags (roughly 694,000 metric tons). This anticipated growth is driven by favorable weather conditions and the maturation of newly planted coffee trees.",
     image: "/news/news-7.jpg",
     category: "Agriculture Forecast",
-    author: "Mentesnot D.",
+    author: "Teklu",
     date: "April 08, 2026",
     createdAt: "2026-04-08T09:00:00Z",
   },
@@ -379,7 +379,7 @@ export const BLOG_POSTS = [
     content: "The Ethiopian government has set ambitious long-term goals for the coffee sector. By 2033, Ethiopia aims to become the world’s second-largest coffee exporter, trailing only Brazil. The immediate target is to increase annual export volumes to over 600,000 tonnes and consistently secure over US$3 billion in annual export earnings.",
     image: "/news/news-8.jpg",
     category: "Industry Goals",
-    author: "Mentesnot D.",
+    author: "Telahun",
     date: "April 02, 2026",
     createdAt: "2026-04-02T09:00:00Z",
   },
@@ -390,7 +390,7 @@ export const BLOG_POSTS = [
     content: "Despite record growth, the Ethiopian coffee sector continues to face significant challenges related to climate vulnerability. Changing rainfall patterns and rising temperatures threaten traditional growing regions. In response, research institutions and farmers are collaborating on climate-smart agricultural practices and developing drought-resistant coffee varietals.",
     image: "/news/news-9.jpg",
     category: "Climate & Agriculture",
-    author: "Mentesnot D.",
+    author: "Hundesa",
     date: "March 25, 2026",
     createdAt: "2026-03-25T09:00:00Z",
   },
@@ -401,7 +401,7 @@ export const BLOG_POSTS = [
     content: "To support the rapid growth in export volumes, significant investments are being made in Ethiopia's agricultural infrastructure. Improvements in rural road networks, the expansion of modern dry mills, and enhanced logistical operations at the Port of Djibouti are critically reducing lead times and ensuring coffee reaches international markets faster.",
     image: "/news/news-10.jpg",
     category: "Infrastructure",
-    author: "Mentesnot D.",
+    author: "Teklu",
     date: "March 18, 2026",
     createdAt: "2026-03-18T09:00:00Z",
   },
@@ -412,7 +412,7 @@ export const BLOG_POSTS = [
     content: "Recognizing the premium placed on sustainable products in Western markets, Ethiopian cooperatives are rapidly expanding their Organic and Fair Trade certifications. These accreditations not only promote environmentally friendly farming practices but also guarantee above-market returns to the smallholder farmers who form the backbone of the industry.",
     image: "/news/news-11.jpg",
     category: "Sustainability",
-    author: "Mentesnot D.",
+    author: "Telahun",
     date: "March 10, 2026",
     createdAt: "2026-03-10T09:00:00Z",
   },
@@ -423,7 +423,7 @@ export const BLOG_POSTS = [
     content: "Unlike many other coffee-producing nations, Ethiopia has a vibrant domestic coffee culture, consuming approximately half of its total production. The domestic market continues to grow, driven by urbanization and a deep-rooted cultural affinity for the traditional coffee ceremony, making local consumption a stabilizing force for the industry.",
     image: "/news/news-12.jpg",
     category: "Domestic Market",
-    author: "Mentesnot D.",
+    author: "Hundesa",
     date: "March 01, 2026",
     createdAt: "2026-03-01T09:00:00Z",
   }

@@ -38,18 +38,32 @@ const ContactUsPage = () => {
     setFormData({ ...formData, [e.target.name]: e.target.value });
   };
 
-  // Simulate Form Submission
+  // Open Gmail compose in a new tab with form data pre-filled
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate network request
+
+    const to = "derarabusiness53@gmail.com";
+    const subject = encodeURIComponent(formData.subject || "Inquiry from Derara Website");
+    const body = encodeURIComponent(
+      `Name: ${formData.name}\n` +
+      `Email: ${formData.email}\n` +
+      `Address: ${formData.address}\n` +
+      `Company: ${formData.company}\n\n` +
+      `Message:\n${formData.message}`
+    );
+
+    // Open Gmail compose directly in a new tab — no "choose app" dialog
+    const gmailUrl = `https://mail.google.com/mail/?view=cm&fs=1&to=${to}&su=${subject}&body=${body}`;
+    window.open(gmailUrl, "_blank");
+
+    // Show success confirmation after Gmail tab opens
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSuccess(true);
       setFormData({ name: "", email: "", address: "", company: "", subject: "", message: "" });
-      // Reset success message after 5 seconds
-      setTimeout(() => setIsSuccess(false), 5000);
-    }, 2000);
+      setTimeout(() => setIsSuccess(false), 8000);
+    }, 800);
   };
 
   return (
@@ -136,10 +150,11 @@ const ContactUsPage = () => {
                   <CheckCircle className="w-10 h-10 text-green-500" />
                 </div>
                 <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-2">
-                  Message Sent!
+                  Email Client Opened!
                 </h3>
                 <p className="text-gray-600 dark:text-gray-300">
-                  Thank you for reaching out. We'll get back to you shortly.
+                  Your email app has been opened with your message pre-filled.<br />
+                  <span className="font-semibold text-red-500">Just click Send</span> in your email app to complete your inquiry.
                 </p>
                 <button
                   onClick={() => setIsSuccess(false)}
@@ -156,7 +171,7 @@ const ContactUsPage = () => {
                   label="Your Name"
                   name="name"
                   type="text"
-                  placeholder="John Doe"
+                  placeholder="e.g. Abebe Kebede"
                   value={formData.name}
                   onChange={handleChange}
                 />
@@ -164,7 +179,7 @@ const ContactUsPage = () => {
                   label="Email Address"
                   name="email"
                   type="email"
-                  placeholder="john@example.com"
+                  placeholder="e.g. you@company.com"
                   value={formData.email}
                   onChange={handleChange}
                 />
@@ -174,7 +189,7 @@ const ContactUsPage = () => {
                 label="Address"
                 name="address"
                 type="text"
-                placeholder="123 Coffee Street"
+                placeholder="e.g. Bole, Addis Ababa, Ethiopia"
                 value={formData.address}
                 onChange={handleChange}
               />
@@ -183,7 +198,7 @@ const ContactUsPage = () => {
                 label="Company (Optional)"
                 name="company"
                 type="text"
-                placeholder="Coffee Co. Ltd"
+                placeholder="e.g. Sunrise Roasters GmbH"
                 value={formData.company}
                 onChange={handleChange}
               />
@@ -192,7 +207,7 @@ const ContactUsPage = () => {
                 label="Subject"
                 name="subject"
                 type="text"
-                placeholder="Project Inquiry"
+                placeholder="e.g. Export Partnership Request"
                 value={formData.subject}
                 onChange={handleChange}
               />

@@ -1,13 +1,12 @@
-import React, { useState, useEffect } from "react";
-import { ChevronLeft, ChevronRight, ArrowDown } from "lucide-react";
+import React, { useState, useEffect, useRef } from "react";
+import { ChevronLeft, ChevronRight } from "lucide-react";
 import carasol1 from "../../assets/carasol1.png";
-import carasol2 from "../../assets/carasol2.png";
-import carasol3 from "../../assets/carasol3_opt.jpg";
-import carasol4 from "../../assets/carasol44_opt.jpg";
 
-const slides = [
+// Only slide data — images 2-4 load lazily after mount
+const slideData = [
   {
-    img: carasol1,
+    imgSrc: carasol1,
+    imgLazy: null,
     tag: "BIRTHPLACE OF COFFEE",
     title: "Premium Ethiopian",
     accent: "Coffee Export",
@@ -17,7 +16,8 @@ const slides = [
     align: "left",
   },
   {
-    img: carasol2,
+    imgSrc: null,
+    imgLazy: () => import("../../assets/carasol2.png"),
     tag: "GLOBAL PARTNERSHIPS",
     title: "Trusted By",
     accent: "the World",
@@ -25,7 +25,8 @@ const slides = [
     align: "left",
   },
   {
-    img: carasol3,
+    imgSrc: null,
+    imgLazy: () => import("../../assets/carasol3_opt.jpg"),
     tag: "FARM TO FREIGHT",
     title: "Direct From",
     accent: "Ethiopian Farmers",
@@ -35,7 +36,8 @@ const slides = [
     align: "left",
   },
   {
-    img: carasol4,
+    imgSrc: null,
+    imgLazy: () => import("../../assets/carasol44_opt.jpg"),
     tag: "SENSORY EXCELLENCE",
     title: "Experience the",
     accent: "Richness",
@@ -46,39 +48,57 @@ const slides = [
   },
 ];
 
-const INTERVAL = 5500;
+const INTERVAL = 4000;
 
 const Carousel = () => {
   const [current, setCurrent] = useState(0);
-  const [progress, setProgress] = useState(0);
+  const [slides, setSlides] = useState(slideData);
   const [animating, setAnimating] = useState(false);
+  const timerRef = useRef(null);
 
+  // Preload images 2-4 progressively after first render
   useEffect(() => {
-    setProgress(0);
-    const start = performance.now();
-    let raf;
-    const tick = (now) => {
-      const elapsed = now - start;
-      setProgress(Math.min((elapsed / INTERVAL) * 100, 100));
-      if (elapsed < INTERVAL) {
-        raf = requestAnimationFrame(tick);
+    let cancelled = false;
+    const loadImages = async () => {
+      const updated = [...slideData];
+      for (let i = 1; i < slideData.length; i++) {
+        if (cancelled) break;
+        try {
+          const mod = await slideData[i].imgLazy();
+          updated[i] = { ...updated[i], imgSrc: mod.default };
+          if (!cancelled) setSlides([...updated]);
+        } catch (e) {
+          // ignore
+        }
+        // Small delay between loads to avoid blocking
+        await new Promise((r) => setTimeout(r, 300));
       }
     };
-    raf = requestAnimationFrame(tick);
-    const timer = setTimeout(() => {
-      goNext();
-    }, INTERVAL);
+    // Start loading after a short delay so the hero paint isn't blocked
+    const t = setTimeout(loadImages, 800);
     return () => {
-      clearTimeout(timer);
-      cancelAnimationFrame(raf);
+      cancelled = true;
+      clearTimeout(t);
     };
-  }, [current]);
+  }, []);
+
+  // Auto-advance timer (simple interval, no RAF loop)
+  useEffect(() => {
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, INTERVAL);
+    return () => clearInterval(timerRef.current);
+  }, [slides.length]);
 
   const goTo = (idx) => {
     if (animating || idx === current) return;
     setAnimating(true);
-    setTimeout(() => setAnimating(false), 800);
     setCurrent(idx);
+    clearInterval(timerRef.current);
+    timerRef.current = setInterval(() => {
+      setCurrent((prev) => (prev + 1) % slides.length);
+    }, INTERVAL);
+    setTimeout(() => setAnimating(false), 700);
   };
 
   const goPrev = () => goTo((current - 1 + slides.length) % slides.length);
@@ -86,45 +106,44 @@ const Carousel = () => {
 
   return (
     <div className="relative w-full h-screen min-h-[600px] overflow-hidden bg-black">
-      {/* Slides */}
       {slides.map((slide, i) => (
         <div
           key={i}
-          className="absolute inset-0 transition-opacity duration-[900ms] ease-in-out"
-          style={{ opacity: i === current ? 1 : 0, zIndex: i === current ? 1 : 0 }}
+          className="absolute inset-0"
+          style={{
+            opacity: i === current ? 1 : 0,
+            zIndex: i === current ? 1 : 0,
+            transition: "opacity 900ms ease-in-out",
+            willChange: "opacity",
+          }}
         >
-          {/* Background image with subtle Ken Burns */}
-          <div
-            className="absolute inset-0 bg-cover bg-center"
-            style={{
-              backgroundImage: `url(${slide.img})`,
-              transform: i === current ? "scale(1.05)" : "scale(1)",
-              transition: "transform 6s ease-out",
-            }}
-          />
-          {/* Dark overlay gradient */}
+          {/* Background image */}
+          {slide.imgSrc ? (
+            <div
+              className="absolute inset-0 bg-cover bg-center"
+              style={{
+                backgroundImage: `url(${slide.imgSrc})`,
+                transform: i === current ? "scale(1.05)" : "scale(1)",
+                transition: "transform 6s ease-out",
+              }}
+            />
+          ) : (
+            <div className="absolute inset-0 bg-stone-900" />
+          )}
+
+          {/* Dark overlay */}
           <div
             className="absolute inset-0"
             style={{
-              background:
-                slide.align === "left"
-                  ? "linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.15) 100%)"
-                  : "linear-gradient(to left, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.15) 100%)",
+              background: "linear-gradient(to right, rgba(0,0,0,0.75) 40%, rgba(0,0,0,0.15) 100%)",
             }}
           />
           {/* Bottom fade */}
           <div className="absolute bottom-0 left-0 right-0 h-40 pointer-events-none bg-gradient-to-t from-[#fafafa] dark:from-black to-transparent" />
 
           {/* Text content */}
-          <div
-            className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-28"
-            style={{ alignItems: slide.align === "right" ? "flex-end" : "flex-start" }}
-          >
-            <div
-              className="max-w-2xl"
-              style={{ textAlign: slide.align === "right" ? "right" : "left" }}
-            >
-              {/* Tag */}
+          <div className="absolute inset-0 flex flex-col justify-center px-8 md:px-16 lg:px-28">
+            <div className="max-w-2xl">
               <div
                 className="inline-flex items-center gap-2 mb-5"
                 style={{
@@ -134,16 +153,12 @@ const Carousel = () => {
                 }}
               >
                 <span className="w-8 h-px bg-amber-400" />
-                <span
-                  className="text-xs font-bold tracking-[0.3em] uppercase"
-                  style={{ color: "#f59e0b" }}
-                >
+                <span className="text-xs font-bold tracking-[0.3em] uppercase" style={{ color: "#f59e0b" }}>
                   {slide.tag}
                 </span>
                 <span className="w-8 h-px bg-amber-400" />
               </div>
 
-              {/* Title */}
               <h1
                 className="text-5xl md:text-7xl font-black text-white leading-none mb-3"
                 style={{
@@ -165,7 +180,6 @@ const Carousel = () => {
                 </span>
               </h1>
 
-              {/* Sub */}
               <p
                 className="text-lg md:text-xl text-white/80 font-medium mb-8 max-w-lg leading-relaxed"
                 style={{
@@ -177,54 +191,28 @@ const Carousel = () => {
               >
                 {slide.sub}
               </p>
-
-              {/* CTA */}
-              {slide.cta && (
-                <div
-                  style={{
-                    opacity: i === current ? 1 : 0,
-                    transform: i === current ? "translateY(0)" : "translateY(20px)",
-                    transition: "all 0.8s ease 0.65s",
-                  }}
-                >
-                  <a
-                    href={slide.ctaLink}
-                    className="inline-flex items-center gap-3 px-8 py-4 rounded-full text-white font-bold text-sm tracking-wide uppercase transition-all duration-300 hover:gap-5 hover:shadow-lg"
-                    style={{
-                      background: "linear-gradient(135deg, #dc2626, #b91c1c)",
-                      boxShadow: "0 4px 24px rgba(220,38,38,0.35)",
-                      fontFamily: "var(--font-outfit)",
-                    }}
-                  >
-                    {slide.cta}
-                    <ChevronRight size={18} />
-                  </a>
-                </div>
-              )}
             </div>
           </div>
         </div>
       ))}
 
-
-
       {/* Nav Arrows */}
       <button
         onClick={goPrev}
-        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+        className="absolute left-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden md:flex items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
         aria-label="Previous slide"
       >
         <ChevronLeft size={22} />
       </button>
       <button
         onClick={goNext}
-        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 flex items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
+        className="absolute right-4 top-1/2 -translate-y-1/2 z-20 w-12 h-12 hidden md:flex items-center justify-center rounded-full border border-white/20 bg-black/30 text-white backdrop-blur-sm hover:bg-white/10 hover:border-white/50 transition-all duration-300"
         aria-label="Next slide"
       >
         <ChevronRight size={22} />
       </button>
 
-      {/* Dot Indicators */}
+      {/* Dot Indicators — CSS-animated progress bar */}
       <div className="absolute bottom-10 left-1/2 -translate-x-1/2 z-20 flex items-center gap-3">
         {slides.map((_, i) => (
           <button
@@ -238,23 +226,18 @@ const Carousel = () => {
               style={{
                 width: i === current ? "2rem" : "0.5rem",
                 height: "0.5rem",
-                background: i === current
-                  ? "linear-gradient(to right, #ef4444, #f59e0b)"
-                  : "rgba(255,255,255,0.35)",
+                background:
+                  i === current
+                    ? "linear-gradient(to right, #ef4444, #f59e0b)"
+                    : "rgba(255,255,255,0.35)",
               }}
             />
           </button>
         ))}
-      </div>
-
-      {/* Scroll hint */}
-      <div className="absolute bottom-10 right-8 z-20 flex flex-col items-center gap-2 text-white/40 text-xs tracking-widest uppercase"
-        style={{ fontFamily: "var(--font-outfit)" }}>
-        <span>Scroll</span>
-        <ArrowDown size={14} className="animate-bounce" />
       </div>
     </div>
   );
 };
 
 export default Carousel;
+

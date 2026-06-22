@@ -64,12 +64,12 @@ const Navbar = ({ mobileOpen, setMobileOpen }) => {
 
       {/* Drawer Content */}
       <div
-        className={`relative w-[70%] max-w-[280px] h-full bg-white dark:bg-gray-950 border-l border-gray-200 dark:border-white/10 shadow-2xl flex flex-col pt-0 pb-10 px-8 transition-transform duration-500 ease-out transform ${mobileOpen ? "translate-x-0" : "translate-x-full"
+        className={`relative w-max min-w-[160px] max-w-[80vw] h-full bg-white dark:bg-gray-950 border-l border-gray-200 dark:border-white/10 shadow-2xl flex flex-col pt-0 pb-10 px-6 transition-transform duration-500 ease-out transform ${mobileOpen ? "translate-x-0" : "translate-x-full"
           }`}
       >
         {/* Mobile Drawer Header */}
         <div className="pt-24 pb-6 border-b border-gray-100 dark:border-white/5 flex items-center justify-between">
-          <span className="text-[10px] font-black text-red-500 tracking-[0.5em] uppercase">
+          <span className="text-[10px] font-black text-red-500 tracking-[0.5em] uppercase mr-6">
             Navigation
           </span>
           <button
@@ -90,8 +90,8 @@ const Navbar = ({ mobileOpen, setMobileOpen }) => {
                 key={link.name}
                 to={link.path}
                 onClick={() => setMobileOpen(false)}
-                style={{ transitionDelay: `${index * 50}ms` }}
-                className={`group flex items-center justify-between text-lg font-bold uppercase tracking-wider border-b border-gray-100 dark:border-white/5 pb-3 transition-all duration-300 ${mobileOpen
+                style={{ transitionDelay: `${index * 50}ms`, fontFamily: "var(--font-milky)" }}
+                className={`group flex items-center justify-between text-[17px] font-normal tracking-widest border-b border-gray-100 dark:border-white/5 pb-3 transition-all duration-300 ${mobileOpen
                   ? "translate-x-0 opacity-100"
                   : "translate-x-10 opacity-0"
                   } ${isActive
